@@ -42,7 +42,7 @@ if __name__ == '__main__':
     devices = args.devices.split(',')
     print('DEVICES:: ', devices)
     num_gpus = len(devices)
-    gpu_ranks = ' '.joins(devices)
+    gpu_ranks = ' '.join(devices)
     print('NUM_GPUS:: ', num_gpus)
     print('GPU_RANK:: ', gpu_ranks)
     run(args.step, num_gpus, gpu_ranks)
