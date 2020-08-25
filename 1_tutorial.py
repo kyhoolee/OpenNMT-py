@@ -41,7 +41,8 @@ if __name__ == '__main__':
     print('DEVICES:: ', os.environ["CUDA_VISIBLE_DEVICES"])
     devices = args.devices.split(',')
     print('DEVICES:: ', devices)
-    num_gpus = len(devices)
+    # AssertionError: -gpu_ranks should have master(=0) rank unless -world_size is greater than len(gpu_ranks).
+    num_gpus = len(devices) + 1
     gpu_ranks = ' '.join(devices)
     print('NUM_GPUS:: ', num_gpus)
     print('GPU_RANK:: ', gpu_ranks)
