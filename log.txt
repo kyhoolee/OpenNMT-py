@@ -1,0 +1,116 @@
+nohup: ignoring input
+DEVICES::  0,1,2,3
+DEVICES::  ['0', '1', '2', '3']
+NUM_GPUS::  5
+GPU_RANK::  0 1 2 3
+STEP-0: TRAIN MODEL
+CMD::  onmt_train -data data/tut1 -save_model tut1_model -world_size 4 -gpu_ranks 0 1 2 3
+[2020-08-25 13:17:07,972 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:08,097 INFO] number of examples: 10000
+[2020-08-25 13:17:09,175 INFO]  * src vocab size = 24997
+[2020-08-25 13:17:09,175 INFO]  * tgt vocab size = 35820
+[2020-08-25 13:17:09,175 INFO] Building model...
+[2020-08-25 13:17:19,539 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(24997, 500, padding_idx=1)
+        )
+      )
+    )
+    (rnn): LSTM(500, 500, num_layers=2, dropout=0.3)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(35820, 500, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.3, inplace=False)
+    (rnn): StackedLSTM(
+      (dropout): Dropout(p=0.3, inplace=False)
+      (layers): ModuleList(
+        (0): LSTMCell(1000, 500)
+        (1): LSTMCell(500, 500)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=500, out_features=500, bias=False)
+      (linear_out): Linear(in_features=1000, out_features=500, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=500, out_features=35820, bias=True)
+    (1): Cast()
+    (2): LogSoftmax()
+  )
+)
+[2020-08-25 13:17:19,539 INFO] encoder: 16506500
+[2020-08-25 13:17:19,539 INFO] decoder: 41613820
+[2020-08-25 13:17:19,539 INFO] * number of parameters: 58120320
+[2020-08-25 13:17:19,542 INFO] Starting training on GPU: [0, 1, 2, 3]
+[2020-08-25 13:17:19,542 INFO] Start training loop and validate every 10000 steps...
+[2020-08-25 13:17:35,249 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:35,326 INFO] number of examples: 10000
+[2020-08-25 13:17:37,895 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:38,009 INFO] number of examples: 10000
+[2020-08-25 13:17:41,148 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:41,272 INFO] number of examples: 10000
+[2020-08-25 13:17:44,704 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:44,821 INFO] number of examples: 10000
+[2020-08-25 13:17:48,153 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:48,280 INFO] number of examples: 10000
+[2020-08-25 13:17:51,201 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:51,333 INFO] number of examples: 10000
+[2020-08-25 13:17:54,340 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:54,483 INFO] number of examples: 10000
+[2020-08-25 13:17:57,773 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:17:57,842 INFO] number of examples: 10000
+[2020-08-25 13:18:01,066 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:18:01,135 INFO] number of examples: 10000
+[2020-08-25 13:18:03,826 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:18:03,958 INFO] number of examples: 10000
+[2020-08-25 13:18:06,336 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:18:06,472 INFO] number of examples: 10000
+[2020-08-25 13:18:09,763 INFO] Step 50/100000; acc:   3.80; ppl: 27934.97; xent: 10.24; lr: 1.00000; 5634/5610 tok/s;     50 sec
+[2020-08-25 13:18:20,518 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:18:20,706 INFO] number of examples: 10000
+[2020-08-25 13:18:40,464 INFO] Step 100/100000; acc:   4.50; ppl: 8689.55; xent: 9.07; lr: 1.00000; 9355/9348 tok/s;     81 sec
+[2020-08-25 13:18:49,526 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:18:49,673 INFO] number of examples: 10000
+[2020-08-25 13:19:11,894 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:19:12,035 INFO] number of examples: 10000
+[2020-08-25 13:19:12,323 INFO] Step 150/100000; acc:   7.27; ppl: 3098.83; xent: 8.04; lr: 1.00000; 9304/9182 tok/s;    113 sec
+[2020-08-25 13:19:39,207 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:19:39,286 INFO] number of examples: 10000
+[2020-08-25 13:19:47,112 INFO] Step 200/100000; acc:   8.80; ppl: 2365.56; xent: 7.77; lr: 1.00000; 7994/7993 tok/s;    148 sec
+[2020-08-25 13:20:04,121 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:20:04,273 INFO] number of examples: 10000
+[2020-08-25 13:20:15,940 INFO] Step 250/100000; acc:   9.52; ppl: 1795.97; xent: 7.49; lr: 1.00000; 9924/9876 tok/s;    176 sec
+[2020-08-25 13:20:29,776 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:20:29,923 INFO] number of examples: 10000
+[2020-08-25 13:20:50,975 INFO] Step 300/100000; acc:   9.86; ppl: 1505.33; xent: 7.32; lr: 1.00000; 8250/8211 tok/s;    211 sec
+[2020-08-25 13:20:55,455 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:20:55,585 INFO] number of examples: 10000
+[2020-08-25 13:21:19,167 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:21:19,310 INFO] number of examples: 10000
+[2020-08-25 13:21:21,979 INFO] Step 350/100000; acc:  10.59; ppl: 1351.10; xent: 7.21; lr: 1.00000; 9321/9237 tok/s;    242 sec
+[2020-08-25 13:21:45,573 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:21:45,720 INFO] number of examples: 10000
+[2020-08-25 13:21:55,962 INFO] Step 400/100000; acc:  11.06; ppl: 1187.14; xent: 7.08; lr: 1.00000; 8286/8292 tok/s;    276 sec
+[2020-08-25 13:22:11,300 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:22:11,402 INFO] number of examples: 10000
+[2020-08-25 13:22:26,343 INFO] Step 450/100000; acc:  11.41; ppl: 1056.86; xent: 6.96; lr: 1.00000; 9418/9384 tok/s;    307 sec
+[2020-08-25 13:22:35,868 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:22:35,938 INFO] number of examples: 10000
+[2020-08-25 13:23:01,024 INFO] Step 500/100000; acc:  12.21; ppl: 948.75; xent: 6.86; lr: 1.00000; 8505/8426 tok/s;    341 sec
+[2020-08-25 13:23:02,429 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:23:02,550 INFO] number of examples: 10000
+[2020-08-25 13:23:22,453 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:23:22,584 INFO] number of examples: 10000
+[2020-08-25 13:23:25,095 INFO] Step 550/100000; acc:  12.53; ppl: 860.89; xent: 6.76; lr: 1.00000; 11705/11657 tok/s;    366 sec
+[2020-08-25 13:23:36,607 INFO] Loading dataset from data/tut1.train.0.pt
+[2020-08-25 13:23:36,737 INFO] number of examples: 10000

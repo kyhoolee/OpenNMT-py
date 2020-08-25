@@ -17,7 +17,7 @@ def run(step=0, num_gpus=0, gpu_ranks=''):
     elif step == 1:
         print('STEP-0: TRAIN MODEL')
         if(num_gpus > 0):
-            cmd = 'onmt_train -data data/tut1 -save_model tut1_model -world_size {} -gpu_ranks {}'.format(num_gpus, gpu_ranks)
+            cmd = 'onmt_train -data data/tut1 -save_model tut1_model -world_size 4 -gpu_ranks {}'.format(gpu_ranks)
             print('CMD:: ', cmd)
             os.system(cmd)
         else:
