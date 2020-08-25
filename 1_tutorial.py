@@ -2,6 +2,12 @@ import os
 import sys
 import argparse
 
+'''
+nohup python -u 1_tutorial.py --step 1 --devices 2,3 > log.txt 2>&1 &
+
+
+'''
+
 
 def run(step=0):
     if step == 0:
@@ -25,6 +31,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     
-    os.environ["CUDA_VISIBLE_DEVICES"]=args.devices
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.devices
+    print('DEVICES:: ', os.environ["CUDA_VISIBLE_DEVICES"])
     run(args.step)
 
