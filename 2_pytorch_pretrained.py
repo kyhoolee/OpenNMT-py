@@ -19,11 +19,12 @@ def run():
     # en2de.cuda()
 
     # Translate a sentence
-    en2de.translate('Hello world!')
+    # en2de.translate('Hello world!')
     # 'Hallo Welt!'
 
     # Batched translation
-    result = en2de.translate(['Hello world!', 'The cat sat on the mat.'])
+    result = en2de.translate(['Miranda Kerr and Orlando Bloom are parents to two-year-old Flynn .'])
+    # (['Hello world!', 'The cat sat on the mat.'])
     print('RESULT:: ',result)
     # ['Hallo Welt!', 'Die Katze saß auf der Matte.']
 
