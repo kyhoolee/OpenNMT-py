@@ -5,6 +5,7 @@ import argparse
 '''
 nohup python -u 1_tutorial.py --step 1 --devices 2,3 > log.txt 2>&1 &
 
+Bug1: must run with gpu devices 0 ??? 
 
 '''
 
@@ -25,7 +26,7 @@ def run(step=0, num_gpus=0, gpu_ranks=''):
 
     elif step == 2:
         print('STEP-0: translate DATA')
-        os.system('onmt_translate -model tut1_model_XYZ.pt -src data/src-test.txt -output pred.txt -replace_unk -verbose')
+        os.system('onmt_translate -model tut1_model_step_100000.pt -src data/src-test.txt -output pred.txt -replace_unk -verbose')
 
 
 if __name__ == '__main__':
